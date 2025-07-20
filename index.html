@@ -13,6 +13,12 @@
 <div class="global-scan-line"></div>
 <div class="global-crt-effect"></div>
 
+<!-- Add audio element (hidden) -->
+<audio id="ambient-sound" loop>
+    <source src="ambient.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
 <div id="start-screen" class="start-screen">
     <button id="start-button" class="terminal-button">ПОДКЛЮЧИТЬСЯ</button>
     <div class="terminal-footer">
@@ -40,7 +46,7 @@
         ВЕРОЯТНОСТЬ: ВНЕШНЕЕ ВТОРЖЕНИЕ/ПРОРЫВ.<br>
         ТРЕБУЕТСЯ: ДЕШИФРОВКА КОДА АВТОРИЗАЦИИ.
     </p>
-    <p class="code">КОД: 208-147-208-152-208-148-208-160-208-144</p>
+    <p class="code">КОД: 208-147-208-152-208-144-208-160-208-144</p>
     <div class="input-container">
         <input type="text" id="code-input" placeholder="Введите код авторизации:">
         <button id="submit-button">ПОДТВЕРДИТЬ</button>
@@ -52,7 +58,49 @@
                 <p>ДОСТУП К ЦЕЛЕВЫМ СИСТЕМАМ РАЗРЕШЁН</p>
             </div>
         </div>
-        <a href="next_stage.html" class="terminal-button center-button">ПЕРЕЙТИ К СЛЕДУЮЩЕМУ ЭТАПУ</a>
+        <button id="next-stage-button" class="terminal-button center-button">ПЕРЕЙТИ К ДЕШИФРОВКЕ СИГНАЛА</button>
+    </div>
+</div>
+
+<div id="hex-puzzle-screen" class="hex-puzzle-screen hidden">
+    <div class="puzzle-container">
+        <h1>ДЕШИФРОВКА СИГНАЛА</h1>
+        <p>
+            ОБНАРУЖЕН ШИФРОВАННЫЙ СИГНАЛ.<br>
+            ДЛЯ ДЕШИФРОВКИ ТРЕБУЕТСЯ ВОССТАНОВИТЬ ПОСЛЕДОВАТЕЛЬНОСТЬ HEX-КОДОВ.<br>
+            СЛЕДУЙТЕ ИНСТРУКЦИЯМ ДЛЯ ЗАВЕРШЕНИЯ ПРОЦЕДУРЫ.
+        </p>
+
+        <div class="game-container">
+            <div class="matrix" id="matrix"></div>
+
+            <div class="info-panel">
+                <div class="sequence">
+                    <h3>ЦЕЛЕВАЯ ПОСЛЕДОВАТЕЛЬНОСТЬ:</h3>
+                    <div id="target-sequence"></div>
+                </div>
+
+                <div class="buffer">
+                    <div class="buffer-title">ВАШ БУФЕР:</div>
+                    <div class="buffer-content" id="buffer"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="message" id="message"></div>
+
+        <div id="document-link" class="hidden">
+            <button id="view-document" class="terminal-sbutton">ПЕРЕЙТИ К ДЕШИФРОВАННОМУ ОБЪЕКТУ</button>
+        </div>
+
+        <button id="restart-btn" class="terminal-sbutton">ПЕРЕЗАПУСТИТЬ ДЕШИФРОВКУ</button>
+        <div class="instructions">
+            <h3>ИНСТРУКЦИИ ПО ДЕШИФРОВКЕ:</h3>
+            <p>1. ВЫБЕРИТЕ ЯЧЕЙКУ, СООТВЕТСТВУЮЩУЮ ПЕРВОМУ ЭЛЕМЕНТУ В ЦЕЛЕВОЙ ПОСЛЕДОВАТЕЛЬНОСТИ.</p>
+            <p>2. ПОСЛЕДУЮЩИЕ ЯЧЕЙКИ ДОЛЖНЫ НАХОДИТЬСЯ В ТОЙ ЖЕ СТРОКЕ ИЛИ СТОЛБЦЕ (КАК ЛАДЬЯ В ШАХМАТАХ).</p>
+            <p>3. ПРОДОЛЖАЙТЕ ВЫБИРАТЬ ЯЧЕЙКИ, ПОКА НЕ СОБЕРЁТЕ ВСЮ ПОСЛЕДОВАТЕЛЬНОСТЬ.</p>
+            <p>4. ОШИБКА ПРИВОДИТ К СБРОСУ ДЕШИФРОВКИ.</p>
+        </div>
     </div>
 </div>
 
