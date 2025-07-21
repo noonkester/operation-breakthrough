@@ -504,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     document.getElementById('view-document').addEventListener('click', function() {
-        window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+        window.open('http://aminoapps.com/p/1ac3l7o', '_blank');
     });
 
     nextStageButton.addEventListener('click', function() {
